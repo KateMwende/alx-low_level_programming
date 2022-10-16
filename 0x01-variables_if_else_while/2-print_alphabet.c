@@ -7,10 +7,10 @@
  */
 int main(void)
 {
-	char lowCase;
+	char low;
 
-	for (lowCase = 'a'; lowCase <= 'z'; lowCase++)
-		putchar(lowCase);
+	for (low = 'a'; low <= 'z'; low++)
+		putchar(low);
 		putchar('\n');
 
 	return (0);
