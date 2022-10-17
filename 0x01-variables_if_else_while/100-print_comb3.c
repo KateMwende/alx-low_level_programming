@@ -15,11 +15,13 @@ int main(void)
 			putchar((n % 10) + '0');
 			putchar((p % 10) + '0');
 
-			putchar(',');
-			putchar(' ');
 
 			if (n == 8 && p == 9)
-				continue;
+			continue;
+
+
+			putchar(',');
+			putchar(' ');
 		}
 	}
 	putchar('\n');
