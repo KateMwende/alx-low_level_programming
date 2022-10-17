@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 /**
 * main - Entry point
 *
@@ -16,9 +15,10 @@ int main(void)
 			putchar((n % 10) + '0');
 			putchar((p % 10) + '0');
 
+			putchar(',');
+
 			if (n == 8 && p == 9)
 
-			putchar(',');
 			putchar(' ');
 		}
 	}
