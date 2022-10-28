@@ -4,6 +4,7 @@
 * _strncpy - copy string
 * @dest: string pointer
 * @src: string pointer
+* @n: limit as to where string should end
 * Return: copy a string
 */
 char *_strncpy(char *dest, char *src, int n)
