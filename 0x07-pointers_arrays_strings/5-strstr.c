@@ -11,13 +11,15 @@ char *_strstr(char *haystack, char *needle)
 {
 	int i, j;
 
-	for (i = 0; haystack[i] != '\0'; i++)
+	for (i = 0; i <= needle[i]; i++)
 	{
-		for (j = 0; needle[j]; j++)
+		for (j = 0; j <= haystack[j]; j++)
 		{
-			if (needle[j] == haystack[i])
-				return (needle);
+			if (needle[i+j] != haystack[j])
+				break;
 		}
+		if (j == haystack[j])
+		return (haystack);
 	}
 	return (NULL);
 }
