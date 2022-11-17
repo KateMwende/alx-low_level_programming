@@ -18,8 +18,17 @@ int int_index(int *array, int size, int (*cmp)(int))
 		return (-1);
 	for (i = 0; i < size; i++)
 	{
+	/*
+	*if the index of first element does does not return 0,
+	* which means false
+	*/
 		if (cmp(array[i]) && array[i] != 0)
 			break;
+
+	/*
+	*if i = to last index there is no element after that,
+	* meaning no element matches
+	*/
 		if (i == size - 1)
 			return (-1);
 	}
