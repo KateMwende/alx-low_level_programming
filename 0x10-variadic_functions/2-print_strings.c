@@ -18,15 +18,14 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-		p = (va_arg(str, char *));
-
+		p = (va_arg(str, char*));
 		if (str != NULL)
 			printf("%s", p);
 		else
 			printf("(nil)");
-	/* separator is null don't print and last integer */
+
 		if (separator != NULL && i < n - 1)
-		printf("%s", separator);
+			printf("%s", separator);
 	}
 	printf("\n");
 	va_end(str);
