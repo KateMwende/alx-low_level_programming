@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
-  *print_listint - Print every element
+  *listint_len - Print every element
   *@h: pointer to listint_t
   *Return: number of nodes
   */
