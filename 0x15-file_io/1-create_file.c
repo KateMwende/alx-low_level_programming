@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include "main.h"
-#include<sys/types.h>
-#include<sys/stat.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 
 /**
@@ -19,14 +19,14 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content == NULL)
 	{
-		fd = open(filename, O_WRONLY | O_CREAT | 0600);
+		fd = open(filename, O_CREAT | O_WRONLY | 0600);
 		if (fd == -1)
 			return (-1);
 		return (1);
 
 	}
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC | 0600);
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC | 0600);
 		if (fd == -1)
 			return (-1);
 
@@ -40,6 +40,4 @@ int create_file(const char *filename, char *text_content)
 	}
 	close(fd);
 	return (1);
-
 }
-
