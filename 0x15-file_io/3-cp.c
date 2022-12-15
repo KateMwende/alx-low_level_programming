@@ -1,54 +1,66 @@
 #include "main.h"
-
 /**
   * main - entry point
   * @argc: argument count
   * @argv: arguement string
   * Return: a string of text
   */
-
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, rd, clf, clt;
-	char buff[1024];
-
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
+
+	copy_file(argv[1], argv[2]);
+	exit(0);
+}
+
+/**
+  * copy_file - ...
+  * @src: file_from
+  * @dest: file_to
+  *
+  * Return: nothing
+  */
+void copy_file(const char *src, const char *dest)
+{
+	int ffrm, ffto, rd;
+	char buff[1024];
+
+	ffrm = open(src, O_RDONLY);
+	if (!src || ffrm == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file NAME_OF_THE_FILE\n");
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
 	}
 
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while ((rd = read(file_from, buff, 1024)) > 0)
+	ffto = open(dest, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	while ((readed = read(ffrm, buff, 1024)) > 0)
 	{
-		if (file_to == -1 || (write(file_to, buff, rd) != rd))
+		if (write(ffto, buff, rd) != rd || ffto == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to NAME_OF_THE_FILE\n");
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			exit(99);
 		}
-		if (rd == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
 	}
-	clf = close(file_from);
-	if (clf == -1)
+
+	if (rd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", clf);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
+		exit(98);
+	}
+
+	if (close(ffrm) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ffrm);
 		exit(100);
 	}
-	clt = close(file_to);
-	if (clt == -1)
+
+	if (close(ffto) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", clt);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ffto);
 		exit(100);
 	}
-	return (0);
 }
