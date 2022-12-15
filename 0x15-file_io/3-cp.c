@@ -37,7 +37,7 @@ void copy_file(const char *src, const char *dest)
 	}
 
 	ffto = open(dest, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while ((readed = read(ffrm, buff, 1024)) > 0)
+	while ((rd = read(ffrm, buff, 1024)) > 0)
 	{
 		if (write(ffto, buff, rd) != rd || ffto == -1)
 		{
