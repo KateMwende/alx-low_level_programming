@@ -1,5 +1,5 @@
-#IFNDEF _LISTS_H_
-#DEFINE _LISTS_H_
+#ifndef _LISTS_H_
+#define _LISTS_H_
 #include <stdarg.h>
 #include <stdio.h>
 
@@ -29,4 +29,4 @@ int sum_dlistint(dlistint_t *head);
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
 
-#ENDIF
+#endif
