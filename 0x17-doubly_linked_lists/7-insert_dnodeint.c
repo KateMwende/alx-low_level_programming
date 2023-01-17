@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "lists.h"
 /**
  * dlistint_len - returns the number of elements in a linked list
@@ -42,7 +43,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
-		return (NLL);
+		return (NULL);
 	while (counter < idx - 1)
 	{
 		temp = temp->next;
